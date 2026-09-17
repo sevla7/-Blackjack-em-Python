@@ -30,6 +30,14 @@ python blackjack.py
 - **`Carta`**: representa uma carta com `naipe` e `valor`.
 - **`Baralho`**: monta as 52 cartas (4 naipes × 13 valores), com métodos para embaralhar (`embaralhar`) e distribuir (`distribuir`) cartas, removendo-as do baralho conforme são compradas.
 
+Esse arquivo aplica conceitos de **Programação Orientada a Objetos (POO)** vistos na faculdade:
+- **Classes e objetos**: `Carta` e `Baralho` são classes; cada carta sorteada é uma instância (objeto) de `Carta`.
+- **Encapsulamento**: o `Baralho` guarda a lista de cartas (`self.cartas`) e expõe métodos (`embaralhar`, `distribuir`) para manipulá-la, em vez de deixar o restante do código mexer diretamente na lista.
+- **Atributos de instância**: `naipe` e `valor` (em `Carta`) e `cartas` (em `Baralho`) são definidos no `__init__` e pertencem a cada objeto individualmente.
+- **Métodos especiais (dunder methods)**: `__repr__` em `Carta` customiza como o objeto aparece quando impresso (ex: `"Ás de Copas"`), em vez do padrão do Python (`<Carta object at 0x...>`).
+- **Composição**: `Baralho` é formado por uma lista de objetos `Carta` — um objeto contendo outros objetos.
+
+
 ### `blackjack.py`
 - **`calcular_valor_carta` / `calcular_total` / `calcular_mao`**: convertem cartas em pontuação, tratando o Ás como 11 ou 1 (o que for melhor pra não estourar 21).
 - **`jogar_dealer`**: joga automaticamente a mão do dealer, seguindo a regra fixa dos 17 pontos.
